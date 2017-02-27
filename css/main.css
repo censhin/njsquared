@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Gotham";
+  font-weight: bold;
+  src: url("../fonts/gotham_bold.otf") format("opentype");
+}
+
 body {
   background: #000000;
   margin: 0px;
@@ -59,6 +65,8 @@ body {
 
 .nav-links a {
   color: #ffffff;
+  font-family: "Gotham";
+  text-decoration: none;
 }
 
 #home img {
