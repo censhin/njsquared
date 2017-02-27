@@ -1,0 +1,131 @@
+body {
+  background: #000000;
+  margin: 0px;
+  padding 0px;
+}
+
+.image-container {
+  display: inline;
+  vertical-align: middle;
+}
+
+.image-container img {
+  height: 40%;
+  width: 40%;
+  padding: 40px;
+}
+
+.text-container {
+  display: inline-block;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.text-container h1 {
+  width: 700px;
+  font-size: 34px;
+}
+
+.text-container p {
+  width: 700px;
+}
+
+.text-container b {
+  font-size: 24px;
+}
+
+.nav {
+  background: #bac6d2;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+}
+
+.nav-links {
+  padding: 20px;
+}
+
+.nav-links ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.nav-links li {
+  display: inline;
+  padding-right: 10px;
+}
+
+#home img {
+  overflow: hidden;
+  width: 100%;
+  display: block;
+}
+
+#our-story {
+  color: #ffffff;
+  background: #2F3F58;
+}
+
+#the-ceremony {
+  color: #000000;
+  background: #ddd1c1;
+}
+
+#hotel {
+  color: #ffffff;
+  background: #c4744f;
+}
+
+#sites {
+  color: #000000;
+  background: #a8c6d2;
+}
+
+#registry {
+  color: #000000;
+  background: #616e7f;
+}
+
+#registry .text-container {
+  display: block;
+  padding: 50px 40px 0px 40px;
+}
+
+#registry .text-container p {
+  margin: 0px;
+}
+
+#rsvp {
+  color: #000000;
+  background: #83a199;
+}
+
+#rsvp .form {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  padding: 50px;
+}
+
+#rsvp .form h1 {
+  margin: 0px;
+  padding-bottom: 20px;
+}
+
+#rsvp .form-field {
+  padding: 8px 0px 8px 0px;
+}
+
+#rsvp .form-button {
+  padding-top: 20px;
+}
+
+#rsvp label {
+  display: block;
+}
+
+#rsvp input {
+  display: inline-block;
+}
