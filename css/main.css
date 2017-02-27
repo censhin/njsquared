@@ -35,7 +35,7 @@ body {
 }
 
 .nav {
-  background: #bac6d2;
+  background: rgba(0, 0, 0, 0.6);
   height: 70px;
   width: 100%;
   position: fixed;
@@ -55,6 +55,10 @@ body {
 .nav-links li {
   display: inline;
   padding-right: 10px;
+}
+
+.nav-links a {
+  color: #ffffff;
 }
 
 #home img {
