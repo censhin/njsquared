@@ -80,6 +80,13 @@ body {
   background: #2F3F58;
 }
 
+#our-story-footer {
+  background: #ddd1c1;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
 #the-ceremony {
   color: #000000;
   background: #ddd1c1;
