@@ -11,6 +11,34 @@ var authClient = new google.auth.JWT(
 var sheets = google.sheets('v4');
 var spreadsheetId = '1QsmYrjoFWIEh73sT4AmdNDXbXZSX14sFZ5Y7Z3PbyJs';
 
+exports.getPasswords = function(next) {
+  authClient.authorize(function(err, tokens) {
+    var request = {
+      spreadsheetId: spreadsheetId,
+      range: 'Sheet2!A:A',
+      auth: authClient
+    };
+
+    sheets.spreadsheets.values.get(request, function(err, response) {
+      next(err, response);
+    });
+  });
+};
+
+exports.deletePassword = function(range, next) {
+  authClient.authorize(function(err, tokens) {
+    var request = {
+      spreadsheetId: spreadsheetId,
+      range: range,
+      auth: authClient
+    };
+
+    sheets.spreadsheets.values.clear(request, function(err, response) {
+      next(err, response);
+    });
+  });
+};
+
 exports.addRsvp = function(data, next) {
   authClient.authorize(function(err, tokens) {
     var request = {
@@ -23,7 +51,7 @@ exports.addRsvp = function(data, next) {
         ]
       },
       auth: authClient
-    }
+    };
 
     sheets.spreadsheets.values.append(request, function(err, response) {
       next(err, response)
