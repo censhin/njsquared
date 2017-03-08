@@ -40,6 +40,12 @@ body {
   font-size: 24px;
 }
 
+.footer-container img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
 .nav {
   background: rgba(0, 0, 0, 0.6);
   height: 70px;
@@ -80,13 +86,6 @@ body {
   background: #2F3F58;
 }
 
-#our-story-footer {
-  background: #ddd1c1;
-  max-width: 100%;
-  height: auto;
-  width: auto;
-}
-
 #the-ceremony {
   color: #000000;
   background: #ddd1c1;
@@ -99,7 +98,7 @@ body {
 
 #sites {
   color: #000000;
-  background: #a8c6d2;
+  background: #b9c5d2;
 }
 
 #registry {
