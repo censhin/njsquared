@@ -242,18 +242,42 @@ body {
   background: #b9c5d2;
 }
 
+#registry-wrapper {
+  text-align: center;
+}
+
 #registry {
-  color: #000000;
+  color: #ffffff;
   background: #616e7f;
 }
 
-#registry .text-container {
-  display: block;
-  padding: 50px 40px 0px 40px;
+#registry h1 {
+  font-family: "LaserMetal";
+  font-size: 120px;
+  margin: 20px;
 }
 
-#registry .text-container p {
-  margin: 0px;
+#registry p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 400px;
+  margin-right: 400px;
+}
+
+#registry a {
+  font-family: "LaserMetal";
+  font-size: 90px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#registry a:link:hover {
+  color: #c4744f;
+}
+
+#registry img {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #rsvp {
