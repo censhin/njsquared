@@ -108,6 +108,12 @@ body {
   display: block;
 }
 
+.slider-border {
+  display: inline;
+  height: 40%;
+  width: 40%;
+}
+
 .slider {
   display: inline-block;
   vertical-align: middle;
