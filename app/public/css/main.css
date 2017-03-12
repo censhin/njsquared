@@ -108,20 +108,27 @@ body {
   display: block;
 }
 
-.slider-border {
+.slider-container {
   display: inline;
-  height: 40%;
-  width: 40%;
+  position: absolute;
+  vertical-align: middle;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.slider-container img {
+  height: 60%;
+  width: 60%;
+  z-index: 1;
 }
 
 .slider {
-  display: inline-block;
+  display: block;
   vertical-align: middle;
   height: 40%;
   width: 40%;
-  margin-left: 60px;
-  margin-right: 60px;
-  z-index: 1;
+  margin: 30px 80px 80px 90px;
+  z-index: 2;
 }
 
 #our-story {
