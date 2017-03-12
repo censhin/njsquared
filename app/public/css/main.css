@@ -1,24 +1,36 @@
-@font-face {
-  font-family: "Gotham";
-  font-weight: bold;
-  src: url("../fonts/gotham_bold.otf") format("opentype");
-}
-
 body {
   background: #000000;
   margin: 0px;
   padding 0px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1440px;
+}
+
+.content-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  width: 1200px;
 }
 
 .image-container {
   display: inline;
   vertical-align: middle;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .image-container img {
   height: 40%;
   width: 40%;
-  padding: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .text-container {
@@ -28,12 +40,12 @@ body {
 }
 
 .text-container h1 {
-  width: 700px;
+  width: 400px;
   font-size: 34px;
 }
 
 .text-container p {
-  width: 700px;
+  width: 500px;
 }
 
 .text-container b {
@@ -47,7 +59,7 @@ body {
 }
 
 .nav {
-  background: rgba(0, 0, 0, 0.6);
+  background: #2F3F58;
   height: 70px;
   width: 100%;
   position: fixed;
@@ -71,12 +83,17 @@ body {
 
 .nav-links a {
   color: #ffffff;
-  font-family: "Gotham";
   text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+  padding-right: 40px;
+}
+
+#home {
+  background: #b9c5d2;
+  padding-top: 80px;
 }
 
 #home img {
-  overflow: hidden;
   width: 100%;
   display: block;
 }
@@ -84,6 +101,7 @@ body {
 #our-story {
   color: #ffffff;
   background: #2F3F58;
+  padding-top: 100px;
 }
 
 #the-ceremony {
