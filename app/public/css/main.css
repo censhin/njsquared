@@ -48,6 +48,7 @@ body {
   width: 400px;
   font-family: "LaserMetal";
   font-size: 100px;
+  color: #ffffff;
   margin: 0px;
   border: 0px;
   padding: 0px;
@@ -271,38 +272,57 @@ body {
   text-decoration: none;
 }
 
-#registry a:link:hover {
+#registry a:hover {
   color: #c4744f;
 }
 
-#registry img {
+#registry .link-img {
   padding-left: 20px;
   padding-right: 20px;
 }
 
 #rsvp {
-  color: #000000;
+  color: #ffffff;
   background: #83a199;
+  text-align: center;
+}
+
+#rsvp h1 {
+  display: block;
+  font-family: "LaserMetal";
+  font-size: 120px;
+  text-align: center;
+  margin: 20px;
+  padding-bottom: 20px;
 }
 
 #rsvp .form {
   display: block;
   margin: 0 auto;
-  width: 200px;
-  padding: 50px;
-}
-
-#rsvp .form h1 {
-  margin: 0px;
-  padding-bottom: 20px;
 }
 
 #rsvp .form-field {
-  padding: 8px 0px 8px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
-#rsvp .form-button {
-  padding-top: 20px;
+#rsvp .form-field input {
+  width: 300px;
+}
+
+#rsvp .form-button button {
+  border: 2px solid #ffffff;
+  font-family: "LaserMetal";
+  font-size: 60px;
+  height: 100px;
+  width: 200px;
+  color: #ffffff;
+  background-color: #83a199;
+  border-radius: 0px;
+  padding-right: 20px;
+}
+
+#rsvp .form-button button:hover {
+  background-color: #616e7f;
 }
 
 #rsvp label {
