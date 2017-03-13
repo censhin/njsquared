@@ -5,8 +5,10 @@
 
 body {
   background: #000000;
-  margin: 0px;
-  padding 0px;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 100%;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -17,15 +19,14 @@ a {
 .wrapper {
   margin-left: auto;
   margin-right: auto;
-  width: 1440px;
+  width: 100%;
 }
 
 .content-wrapper {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding-top: 80px;
   padding-bottom: 80px;
-  width: 1200px;
+  max-width: 960px;
 }
 
 .image-container {
@@ -46,6 +47,7 @@ a {
   display: inline-block;
   vertical-align: top;
   word-wrap: break-word;
+  margin-left: 30px;
 }
 
 .text-container h1 {
@@ -59,7 +61,8 @@ a {
 }
 
 .text-container p {
-  width: 500px;
+  height: auto;
+  max-width: 400px;
 }
 
 .text-container b {
@@ -67,9 +70,8 @@ a {
 }
 
 .footer-container img {
-  max-width: 100%;
   height: auto;
-  width: auto;
+  width: 100%;
 }
 
 .nav {
@@ -108,8 +110,10 @@ a {
   vertical-align: middle;
   height: 40%;
   width: 40%;
-  margin-left: 60px;
-  margin-right: 60px;
+  max-height: 470px;
+  max-width: 470px;
+  margin-left: 30px;
+  margin-bottom: 40px;
   z-index: 1;
   border: 20px solid #2f3f58;
   border-bottom: 30px solid #2f3f58;
@@ -134,8 +138,10 @@ a {
   vertical-align: middle;
   height: 40%;
   width: 40%;
-  margin-left: 60px;
-  margin-right: 60px;
+  max-height: 470px;
+  max-width: 470px;
+  margin-left: 30px;
+  margin-bottom: 40px;
   z-index: 1;
   border: 20px solid #ddd1c1;
   border-bottom: 30px solid #ddd1c1;
@@ -160,8 +166,10 @@ a {
   vertical-align: middle;
   height: 40%;
   width: 40%;
-  margin-left: 60px;
-  margin-right: 60px;
+  max-height: 470px;
+  max-width: 470px;
+  margin-left: 30px;
+  margin-bottom: 40px;
   z-index: 1;
   border: 20px solid #c4744f;
   border-bottom: 30px solid #c4744f;
@@ -186,8 +194,10 @@ a {
   vertical-align: middle;
   height: 40%;
   width: 40%;
-  margin-left: 60px;
-  margin-right: 60px;
+  max-height: 470px;
+  max-width: 470px;
+  margin-left: 30px;
+  margin-bottom: 40px;
   z-index: 1;
   border: 20px solid #b9c5d2;
   border-bottom: 30px solid #b9c5d2;
