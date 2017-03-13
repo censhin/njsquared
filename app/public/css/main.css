@@ -10,6 +10,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+a {
+  color: #ffffff;
+}
+
 .wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -238,13 +242,24 @@ body {
   background: #c4744f;
 }
 
-#hotel a {
-  color: #ffffff;
-}
-
 #sights {
   color: #000000;
   background: #b9c5d2;
+}
+
+#sights a {
+  color: #000000;
+}
+
+#sights ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  width: 500px;
+}
+
+#sights i {
+  word-wrap: break-word;
 }
 
 #registry-wrapper {
