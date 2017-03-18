@@ -117,7 +117,7 @@ a {
   z-index: 1;
   border: 20px solid #2f3f58;
   border-bottom: 30px solid #2f3f58;
-  outline: 4px solid #fff;
+  outline: 3px solid #fff;
   position: relative;
 }
 
@@ -129,7 +129,7 @@ a {
   left: 35px;
   width: 204px;
   height: 39px;
-  background: url(../img/whiteborder-ed3.png) no-repeat;
+  background: url(../img/dk-blue-swirly.png) no-repeat;
   z-index: 2;
 }
 
@@ -145,7 +145,7 @@ a {
   z-index: 1;
   border: 20px solid #ddd1c1;
   border-bottom: 30px solid #ddd1c1;
-  outline: 4px solid #fff;
+  outline: 3px solid #fff;
   position: relative;
 }
 
@@ -157,7 +157,7 @@ a {
   left: 35px;
   width: 204px;
   height: 39px;
-  background: url(../img/whiteborder-ed4.png) no-repeat;
+  background: url(../img/tan-swirly.png) no-repeat;
   z-index: 2;
 }
 
@@ -173,7 +173,7 @@ a {
   z-index: 1;
   border: 20px solid #c4744f;
   border-bottom: 30px solid #c4744f;
-  outline: 4px solid #fff;
+  outline: 3px solid #fff;
   position: relative;
 }
 
@@ -185,7 +185,7 @@ a {
   left: 35px;
   width: 204px;
   height: 39px;
-  background: url(../img/whiteborder-ed2.png) no-repeat;
+  background: url(../img/orange-swirly.png) no-repeat;
   z-index: 2;
 }
 
@@ -213,7 +213,7 @@ a {
   left: 35px;
   width: 204px;
   height: 39px;
-  background: url(../img/whiteborder-ed.png) no-repeat;
+  background: url(../img/lt-blue-swirly.jpg) no-repeat;
   z-index: 2;
 }
 
@@ -252,24 +252,25 @@ a {
   background: #c4744f;
 }
 
+#sights-wrapper {
+  text-align: center;
+}
+
 #sights {
   color: #000000;
   background: #b9c5d2;
 }
 
-#sights a {
-  color: #000000;
+#sights h1 {
+  font-family: "LaserMetal";
+  font-size: 120px;
+  margin: 20px;
+  color: #ffffff;
 }
 
-#sights ul {
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-  width: 400px;
-}
-
-#sights i {
-  word-wrap: break-word;
+#sights iframe {
+  margin: 40px;
+  border: none;
 }
 
 #registry-wrapper {
