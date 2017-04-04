@@ -119,6 +119,7 @@ a {
   max-width: 470px;
   margin-left: 30px;
   margin-bottom: 40px;
+  margin-top: 20px;
   z-index: 1;
   border: 20px solid #2f3f58;
   border-bottom: 30px solid #2f3f58;
@@ -147,6 +148,7 @@ a {
   max-width: 470px;
   margin-left: 30px;
   margin-bottom: 40px;
+  margin-top: 20px;
   z-index: 1;
   border: 20px solid #ddd1c1;
   border-bottom: 30px solid #ddd1c1;
@@ -175,6 +177,7 @@ a {
   max-width: 470px;
   margin-left: 30px;
   margin-bottom: 40px;
+  margin-top: 20px;
   z-index: 1;
   border: 20px solid #c4744f;
   border-bottom: 30px solid #c4744f;
@@ -191,34 +194,6 @@ a {
   width: 204px;
   height: 39px;
   background: url(../img/orange-swirly.png) no-repeat;
-  z-index: 2;
-}
-
-.image-slider-4 {
-  display: inline-block;
-  vertical-align: middle;
-  height: 40%;
-  width: 40%;
-  max-height: 470px;
-  max-width: 470px;
-  margin-left: 30px;
-  margin-bottom: 40px;
-  z-index: 1;
-  border: 20px solid #b9c5d2;
-  border-bottom: 30px solid #b9c5d2;
-  outline: 4px solid #fff;
-  position: relative;
-}
-
-.image-slider-4::after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: -50px;
-  left: 35px;
-  width: 204px;
-  height: 39px;
-  background: url(../img/lt-blue-swirly.jpg) no-repeat;
   z-index: 2;
 }
 
@@ -252,12 +227,17 @@ a {
   background: #ddd1c1;
 }
 
+#the-ceremony h1 {
+  color: #000000;
+}
+
 #hotel {
   color: #ffffff;
   background: #c4744f;
 }
 
 #sights-wrapper {
+  color: #ffffff;
   text-align: center;
 }
 
@@ -273,9 +253,27 @@ a {
   color: #ffffff;
 }
 
-#sights iframe {
-  margin: 40px;
-  border: none;
+#sights p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 400px;
+  margin-right: 400px;
+}
+
+#sights a {
+  font-family: "LaserMetal";
+  font-size: 90px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#sights a:hover {
+  color: #c4744f;
+}
+
+#sights .link-img {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #registry-wrapper {
