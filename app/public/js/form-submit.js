@@ -2,9 +2,12 @@ var form = document.getElementById('rsvp-form');
 var formName = document.getElementById('for-name');
 var formEntree = document.getElementById('for-entree1');
 var formPassword = document.getElementById('for-password');
-var nameInput= document.getElementById('name-input');
+var nameInput = document.getElementById('name-input');
 var entreeInput = document.getElementById('entree1');
 var passwordInput = document.getElementById('password-input');
+var nameInputFooter = document.getElementById('name-input-footer');
+var entreeInputFooter = document.getElementById('entree-input-footer');
+var passwordInputFooter = document.getElementById('password-input-footer');
 var errorColor = '#c41f1d';
 
 form.addEventListener('submit', function(event) {
@@ -23,7 +26,7 @@ form.addEventListener('submit', function(event) {
 });
 
 function validateEntree(entree) {
-  return entree === "Choose One..." ? undefined : entree;
+  return entree === 'Choose One...' ? undefined : entree;
 }
 
 function submit(data) {
@@ -34,7 +37,7 @@ function submit(data) {
   request.send(data);
 }
 
-function handle(error) {
+function handle() {
   var res = JSON.parse(this.responseText).msg;
   if(this.status > 399) {
     handleError(res);
@@ -48,9 +51,22 @@ function handleError(error) {
   var entree = validateEntree(form.entree1.value);
   var password = form.password.value;
 
+  if(document.getElementById('name-error-msg')) {
+    deleteAlert('name-error-msg');
+  }
+
+  if(document.getElementById('entree-error-msg')) {
+    deleteAlert('entree-error-msg');
+  }
+
+  if(document.getElementById('password-error-msg')) {
+    deleteAlert('password-error-msg');
+  }
+
   if(emptyValue(name) || error.name) {
     formName.style.color = errorColor;
     nameInput.style.borderColor = errorColor;
+    createNewAlert(nameInputFooter, 'name-error-msg', 'Please enter a name');
   } else {
     formName.style.color = null;
     nameInput.style.borderColor = null;
@@ -59,6 +75,7 @@ function handleError(error) {
   if(emptyValue(entree) || error.entree1) {
     formEntree.style.color = errorColor;
     entreeInput.style.borderColor = errorColor;
+    createNewAlert(entreeInputFooter, 'entree-error-msg', 'Please select an entree');
   } else {
     formEntree.style.color = null;
     entreeInput.style.borderColor = null;
@@ -67,6 +84,7 @@ function handleError(error) {
   if(emptyValue(password) || error.password) {
     formPassword.style.color = errorColor;
     passwordInput.style.borderColor = errorColor;
+    createNewAlert(passwordInputFooter, 'password-error-msg', 'Please enter the correct password');
   } else {
     formPassword.style.color = null;
     passwordInput.style.borderColor = null;
@@ -74,7 +92,7 @@ function handleError(error) {
 }
 
 function emptyValue(value) {
-  if(value === "" || value === null || value === undefined) {
+  if(value === '' || value === null || value === undefined) {
     return true;
   }
   return false;
@@ -88,4 +106,17 @@ function handleSuccess(res) {
   formPassword.style.color = null;
   passwordInput.style.borderColor = null;
   alert('Success');
+}
+
+function createNewAlert(anchor, id, msg) {
+  var alertItem = document.createElement('p');
+  var alertText = document.createTextNode(msg);
+  alertItem.setAttribute('id', id);
+  alertItem.appendChild(alertText);
+  anchor.appendChild(alertItem);
+}
+
+function deleteAlert(id) {
+  var alertItem = document.getElementById(id);
+  alertItem.remove();
 }
