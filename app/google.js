@@ -1,5 +1,5 @@
 var google = require('googleapis');
-var key = require('/Users/raym5847/.google/njsquared-671c562144f5.json');
+var key = require('/Users/neill/.google/njsquared-671c562144f5.json');
 
 var authClient = new google.auth.JWT(
   key.client_email,
@@ -43,11 +43,11 @@ exports.addRsvp = function(data, next) {
   authClient.authorize(function(err, tokens) {
     var request = {
       spreadsheetId: spreadsheetId,
-      range: 'Sheet1!A:C',
+      range: 'Sheet1!A:F',
       valueInputOption: 'RAW',
       resource: {
         values: [
-          [data.name, data.guest, data.email]
+          [data.name, data.guest, data.entree1, data.entree2, data.dietary, data.song]
         ]
       },
       auth: authClient

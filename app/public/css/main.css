@@ -342,6 +342,11 @@ a {
   width: 300px;
 }
 
+#rsvp .form-field select {
+  height: 20px;
+  width: 300px;
+}
+
 #rsvp .form-button button {
   border: 2px solid #ffffff;
   font-family: "LaserMetal";
