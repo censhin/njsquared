@@ -1,4 +1,8 @@
-var form = document.querySelector('form');
+var form = document.getElementById('rsvp-form');
+var formName = document.getElementById('for-name');
+var formEntree = document.getElementById('for-entree1');
+var formPassword = document.getElementById('for-password');
+var errorColor = '#2F3F58';
 
 form.addEventListener('submit', function(event) {
   var json = JSON.stringify({
@@ -28,9 +32,40 @@ function submit(data) {
 }
 
 function handle() {
+  var res = JSON.parse(this.responseText).msg;
   if(this.status > 399) {
-    alert(JSON.parse(this.responseText).msg);
+    if(res.includes('guest')) {
+      handleNameError();
+    } else if(res.includes('entree')) {
+      handleEntreeError();
+    } else if(res.includes('password')) {
+      handlePasswordError();
+    }
   } else {
-    alert('Success!');
+    handleSuccess();
   }
+}
+
+function handleNameError() {
+  formName.style.color = errorColor;
+  formEntree.style.color = errorColor;
+  formPassword.style.color = errorColor;
+}
+
+function handleEntreeError() {
+  formName.style.color = null;
+  formEntree.style.color = errorColor;
+  formPassword.style.color = errorColor;
+}
+
+function handlePasswordError() {
+  formName.style.color = null;
+  formEntree.style.color = null;
+  formPassword.style.color = errorColor;
+}
+
+function handleSuccess() {
+  formName.style.color = null;
+  formEntree.style.color = null;
+  formPassword.style.color = null;
 }
