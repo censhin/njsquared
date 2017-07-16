@@ -2,7 +2,10 @@ var form = document.getElementById('rsvp-form');
 var formName = document.getElementById('for-name');
 var formEntree = document.getElementById('for-entree1');
 var formPassword = document.getElementById('for-password');
-var errorColor = '#2F3F58';
+var nameInput= document.getElementById('name-input');
+var entreeInput = document.getElementById('entree1');
+var passwordInput = document.getElementById('password-input');
+var errorColor = '#c41f1d';
 
 form.addEventListener('submit', function(event) {
   var json = JSON.stringify({
@@ -31,41 +34,58 @@ function submit(data) {
   request.send(data);
 }
 
-function handle() {
+function handle(error) {
   var res = JSON.parse(this.responseText).msg;
   if(this.status > 399) {
-    if(res.includes('guest')) {
-      handleNameError();
-    } else if(res.includes('entree')) {
-      handleEntreeError();
-    } else if(res.includes('password')) {
-      handlePasswordError();
-    }
+    handleError(res);
   } else {
-    handleSuccess();
+    handleSuccess(res);
   }
 }
 
-function handleNameError() {
-  formName.style.color = errorColor;
-  formEntree.style.color = errorColor;
-  formPassword.style.color = errorColor;
+function handleError(error) {
+  var name = form.name.value;
+  var entree = validateEntree(form.entree1.value);
+  var password = form.password.value;
+
+  if(emptyValue(name) || error.name) {
+    formName.style.color = errorColor;
+    nameInput.style.borderColor = errorColor;
+  } else {
+    formName.style.color = null;
+    nameInput.style.borderColor = null;
+  }
+
+  if(emptyValue(entree) || error.entree1) {
+    formEntree.style.color = errorColor;
+    entreeInput.style.borderColor = errorColor;
+  } else {
+    formEntree.style.color = null;
+    entreeInput.style.borderColor = null;
+  }
+
+  if(emptyValue(password) || error.password) {
+    formPassword.style.color = errorColor;
+    passwordInput.style.borderColor = errorColor;
+  } else {
+    formPassword.style.color = null;
+    passwordInput.style.borderColor = null;
+  }
 }
 
-function handleEntreeError() {
-  formName.style.color = null;
-  formEntree.style.color = errorColor;
-  formPassword.style.color = errorColor;
+function emptyValue(value) {
+  if(value === "" || value === null || value === undefined) {
+    return true;
+  }
+  return false;
 }
 
-function handlePasswordError() {
+function handleSuccess(res) {
   formName.style.color = null;
+  nameInput.style.borderColor = null;
   formEntree.style.color = null;
-  formPassword.style.color = errorColor;
-}
-
-function handleSuccess() {
-  formName.style.color = null;
-  formEntree.style.color = null;
+  entreeInput.style.borderColor = null;
   formPassword.style.color = null;
+  passwordInput.style.borderColor = null;
+  alert('Success');
 }

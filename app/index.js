@@ -30,24 +30,24 @@ app.post('/guests', function (request, response) {
   request.sanitizeBody('song').escape();
   request.sanitizeBody('password').escape();
 
-  var validationErrors = request.validationErrors();
-
-  if(validationErrors) {
-    var error = validationErrors[0];
-    if(error.param === 'password') {
-      response.status(403).json({msg: error.msg});
-    } else {
-      response.status(422).json({msg: error.msg});
-    }
-  } else {
-    google.addRsvp(request.body, function(err, result) {
-      if(err) {
-        response.status(510).json({msg: 'Something went wrong'});
+  request.getValidationResult().then(function(result) {
+    error = result.mapped();
+    if(Object.keys(error).length > 0) {
+      if (error.password) {
+        response.status(403).json({msg: error});
       } else {
-        response.status(200).json({msg: 'Updated successfully'});
+        response.status(422).json({msg: error});
       }
-    });
-  }
+    } else {
+      google.addRsvp(request.body, function(err, result) {
+        if(err) {
+          response.status(510).json({msg: 'Something went wrong'});
+        } else {
+          response.status(200).json({msg: 'Updated successfully'});
+        }
+      });
+    }
+  });
 });
 
 app.listen(port, function() {
