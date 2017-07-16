@@ -9,6 +9,11 @@ var port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(validator());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.get('/', function (request, response) {
   res.send('Welcome to the njsquared RSVP API.');
@@ -30,19 +35,16 @@ app.post('/guests', function (request, response) {
   if(validationErrors) {
     var error = validationErrors[0];
     if(error.param === 'password') {
-      response.writeHeader(403)
+      response.status(403).json({msg: error.msg});
     } else {
-      response.writeHeader(422);
+      response.status(422).json({msg: error.msg});
     }
-    response.end(error.msg);
   } else {
     google.addRsvp(request.body, function(err, result) {
       if(err) {
-        response.writeHeader(510);
-        response.end("Something went wrong");
+        response.status(510).json({msg: 'Something went wrong'});
       } else {
-        response.writeHeader(200);
-        response.end('Updated Successfully!');
+        response.status(200).json({msg: 'Updated successfully'});
       }
     });
   }
