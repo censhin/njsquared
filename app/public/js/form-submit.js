@@ -2,9 +2,9 @@ var form = document.getElementById('rsvp-form');
 var formName = document.getElementById('for-name');
 var formEntree = document.getElementById('for-entree1');
 var formPassword = document.getElementById('for-password');
-var nameInput = document.getElementById('name-input');
+var nameInput = document.getElementById('name');
 var entreeInput = document.getElementById('entree1');
-var passwordInput = document.getElementById('password-input');
+var passwordInput = document.getElementById('password');
 var nameInputFooter = document.getElementById('name-input-footer');
 var entreeInputFooter = document.getElementById('entree-input-footer');
 var passwordInputFooter = document.getElementById('password-input-footer');
@@ -42,7 +42,7 @@ function handle() {
   if(this.status > 399) {
     handleError(res);
   } else {
-    handleSuccess(res);
+    handleSuccess();
   }
 }
 
@@ -51,17 +51,7 @@ function handleError(error) {
   var entree = validateEntree(form.entree1.value);
   var password = form.password.value;
 
-  if(document.getElementById('name-error-msg')) {
-    deleteAlert('name-error-msg');
-  }
-
-  if(document.getElementById('entree-error-msg')) {
-    deleteAlert('entree-error-msg');
-  }
-
-  if(document.getElementById('password-error-msg')) {
-    deleteAlert('password-error-msg');
-  }
+  clearAlerts();
 
   if(emptyValue(name) || error.name) {
     formName.style.color = errorColor;
@@ -98,14 +88,23 @@ function emptyValue(value) {
   return false;
 }
 
-function handleSuccess(res) {
+function handleSuccess() {
+  clearAlerts();
   formName.style.color = null;
   nameInput.style.borderColor = null;
   formEntree.style.color = null;
   entreeInput.style.borderColor = null;
   formPassword.style.color = null;
   passwordInput.style.borderColor = null;
-  alert('Success');
+
+  var header = document.getElementById('form-header');
+  var success = document.createElement('p');
+  var successMsg = document.createTextNode('Success! Thank you!');
+
+  success.appendChild(successMsg);
+  header.appendChild(success);
+
+  document.getElementById('submit-button').remove();
 }
 
 function createNewAlert(anchor, id, msg) {
@@ -119,4 +118,23 @@ function createNewAlert(anchor, id, msg) {
 function deleteAlert(id) {
   var alertItem = document.getElementById(id);
   alertItem.remove();
+}
+
+function clearAlerts() {
+  if(document.getElementById('name-error-msg')) {
+    deleteAlert('name-error-msg');
+  }
+
+  if(document.getElementById('entree-error-msg')) {
+    deleteAlert('entree-error-msg');
+  }
+
+  if(document.getElementById('password-error-msg')) {
+    deleteAlert('password-error-msg');
+  }
+}
+
+function overlay() {
+  var el = document.getElementById("overlay");
+  el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 }
