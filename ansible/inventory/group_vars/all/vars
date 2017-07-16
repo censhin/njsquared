@@ -1,0 +1,2 @@
+private_key_id: "{{ vault_project_key_id }}"
+private_key: "{{ vault_private_key }}"
