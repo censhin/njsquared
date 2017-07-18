@@ -1,0 +1,55 @@
+---
+- name: create group
+  group:
+    name: "{{ group }}"
+    state: present
+  become: true
+
+- name: create user
+  user:
+    name: "{{ user }}"
+    comment: "{{ user}} User"
+    groups: ["{{ group }}", "sudo"]
+    state: present
+  become: true
+
+- name: upload private ssh key
+  copy:
+    src: "/Users/neill/.ssh/id_rsa"
+    dest: "{{ user_home }}/.ssh/id_rsa"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0600
+  become: yes
+
+- name: upload public ssh key
+  copy:
+    src: "/Users/neill/.ssh/id_rsa.pub"
+    dest: "{{ user_home }}/.ssh/id_rsa.pub"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0644
+  become: yes
+
+- name: add ssh key as authorized_key
+  authorized_key:
+    user: "{{ user }}"
+    state: present
+    key: "{{ lookup('file', '/Users/neill/.ssh/id_rsa.pub') }}"
+  become: true
+
+- name: ensure github.com is known host
+  lineinfile:
+    dest: "{{ user_home }}/.ssh/known_hosts"
+    create: yes
+    state: present
+    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+    regexp: "^github\\.com"
+  become: true
+
+- name: git clone project
+  git:
+    repo: "git@github.com:censhin/njsquared.git"
+    dest: "{{ user_home }}/njsquared"
+  become: true
+  become_user: njsquared

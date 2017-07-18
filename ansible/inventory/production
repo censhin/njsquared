@@ -1,0 +1,5 @@
+[servers]
+njsquared.love
+
+[production:children]
+servers

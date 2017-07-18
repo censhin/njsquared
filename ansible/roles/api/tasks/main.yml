@@ -1,0 +1,28 @@
+---
+- name: create app directory
+  file:
+    path: "{{ api_home }}"
+    state: "directory"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0755
+  become: true
+
+- name: create config directory
+  file:
+    path: "{{ user_home }}/.google"
+    state: "directory"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0755
+
+- name: install api config
+  template:
+    src: "njsquared.json.j2"
+    dest: "{{ user_home }}/.google/njsquared.json"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0644
+
+- name: install api
+  command: "cp -R {{ user_home }}/njsquared/app {{ api_home }}"

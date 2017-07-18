@@ -3,3 +3,4 @@ passwords.*
 *.swp
 .idea
 npm-debug.log
+*.retry
