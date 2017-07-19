@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var google = require('./google');
 
 var app = express();
+var host = '0.0.0.0';
 var port = 3000;
 
 app.use(bodyParser.json());
@@ -50,6 +51,6 @@ app.post('/guests', function (request, response) {
   });
 });
 
-app.listen(port, function() {
+app.listen(port, host, function() {
   console.log('App listening on port %s.', port);
 });
