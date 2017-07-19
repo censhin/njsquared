@@ -1,0 +1,11 @@
+[Service]
+ExecStart=/usr/local/bin/node /srv/njsquared/app/index.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=njsquared-api
+User=njsquared
+Group=njsquared
+
+[Install]
+WantedBy=multi-user.target

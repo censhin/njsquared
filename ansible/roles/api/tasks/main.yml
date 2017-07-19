@@ -34,3 +34,23 @@
     group: "{{ group }}"
     mode: 0755
     recurse: yes
+
+- name: install systemd script
+  template:
+    src: "njsquared.service.j2"
+    dest: "/etc/systemd/system/njsquared.service"
+    owner: root
+    group: root
+    mode: 0664
+  become: true
+  become_user: root
+
+- name: enable systemd script
+  command: "systemctl enable njsquared.service"
+  become: true
+  become_user: root
+
+- name: run service
+  command: "systemctl start njsquared.service"
+  become: true
+  become_user: root
