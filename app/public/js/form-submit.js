@@ -31,7 +31,7 @@ function validateEntree(entree) {
 
 function submit(data) {
   var request = new XMLHttpRequest();
-  request.open('POST', 'http://localhost:3000/guests');
+  request.open('POST', 'http://njsquared.love/api/guests');
   request.setRequestHeader('Content-Type', 'application/json');
   request.onload = handle;
   request.send(data);
