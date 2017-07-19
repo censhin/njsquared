@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function (request, response) {
-  res.send('Welcome to the njsquared RSVP API.');
+  response.send('Welcome to the njsquared RSVP API.');
 });
 
 app.post('/guests', function (request, response) {

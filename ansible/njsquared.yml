@@ -5,3 +5,5 @@
     - server
     - api
     - ui
+  become: true
+  become_user: njsquared

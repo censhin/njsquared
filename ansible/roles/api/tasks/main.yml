@@ -8,7 +8,7 @@
     mode: 0755
   become: true
 
-- name: create config directory
+- name: create secrets directory
   file:
     path: "{{ user_home }}/.google"
     state: "directory"
@@ -16,7 +16,7 @@
     group: "{{ group }}"
     mode: 0755
 
-- name: install api config
+- name: install google api key
   template:
     src: "njsquared.json.j2"
     dest: "{{ user_home }}/.google/njsquared.json"
@@ -26,3 +26,11 @@
 
 - name: install api
   command: "cp -R {{ user_home }}/njsquared/app {{ api_home }}"
+
+- name: set file permissions
+  file:
+    path: "{{ api_home }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0755
+    recurse: yes

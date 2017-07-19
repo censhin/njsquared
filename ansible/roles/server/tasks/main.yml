@@ -20,7 +20,6 @@
     owner: "{{ user }}"
     group: "{{ group }}"
     mode: 0600
-  become: yes
 
 - name: upload public ssh key
   copy:
@@ -29,14 +28,12 @@
     owner: "{{ user }}"
     group: "{{ group }}"
     mode: 0644
-  become: yes
 
 - name: add ssh key as authorized_key
   authorized_key:
     user: "{{ user }}"
     state: present
     key: "{{ lookup('file', '/Users/neill/.ssh/id_rsa.pub') }}"
-  become: true
 
 - name: ensure github.com is known host
   lineinfile:
@@ -45,11 +42,8 @@
     state: present
     line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
     regexp: "^github\\.com"
-  become: true
 
 - name: git clone project
   git:
     repo: "git@github.com:censhin/njsquared.git"
     dest: "{{ user_home }}/njsquared"
-  become: true
-  become_user: njsquared

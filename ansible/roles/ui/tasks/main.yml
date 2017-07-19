@@ -1,0 +1,40 @@
+---
+- name: create ui directory
+  file:
+    path: "{{ ui_home }}"
+    state: directory
+    owner: "www-data"
+    group: "www-data"
+    mode: 0755
+  become: true
+  become_user: root
+
+- name: install ui
+  command: "cp -R {{ api_home }}/app/public/. {{ ui_home }}/."
+  become: true
+  become_user: root
+
+- name: set file permissions
+  file:
+    path: "{{ ui_home }}/."
+    owner: "www-data"
+    group: "www-data"
+    mode: 0644
+    recurse: yes
+  become: true
+  become_user: root
+
+- name: set directory permissions
+  file:
+    path: "{{ item }}"
+    owner: "www-data"
+    group: "www-data"
+    mode: 0755
+  with_items:
+    - "{{ ui_home }}"
+    - "{{ ui_home }}/css"
+    - "{{ ui_home }}/fonts"
+    - "{{ ui_home }}/img"
+    - "{{ ui_home }}/js"
+  become: true
+  become_user: root
