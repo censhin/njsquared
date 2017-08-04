@@ -14,10 +14,10 @@ form.addEventListener('submit', function(event) {
   var json = JSON.stringify({
     name: this.name.value,
     guest: this.guest.value,
-    entree1: validateAttendance(this.entree1.value),
-    entree2: validateAttendance(this.entree2.value),
+    entree1: this.entree1.value,
+    entree2: this.entree2.value,
     dietary: this.dietary.value,
-    attendance: this.attendance.value,
+    attendance: validateAttendance(this.attendance.value),
     password: this.password.value
   });
 
