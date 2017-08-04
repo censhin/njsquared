@@ -1,12 +1,12 @@
 var form = document.getElementById('rsvp-form');
 var formName = document.getElementById('for-name');
-var formEntree = document.getElementById('for-entree1');
+var formAttendance = document.getElementById('for-attendance');
 var formPassword = document.getElementById('for-password');
 var nameInput = document.getElementById('name');
-var entreeInput = document.getElementById('entree1');
+var attendanceInput = document.getElementById('attendance');
 var passwordInput = document.getElementById('password');
 var nameInputFooter = document.getElementById('name-input-footer');
-var entreeInputFooter = document.getElementById('entree-input-footer');
+var attendanceInputFooter = document.getElementById('attendance-input-footer');
 var passwordInputFooter = document.getElementById('password-input-footer');
 var errorColor = '#c41f1d';
 
@@ -14,10 +14,10 @@ form.addEventListener('submit', function(event) {
   var json = JSON.stringify({
     name: this.name.value,
     guest: this.guest.value,
-    entree1: validateEntree(this.entree1.value),
-    entree2: validateEntree(this.entree2.value),
+    entree1: validateAttendance(this.entree1.value),
+    entree2: validateAttendance(this.entree2.value),
     dietary: this.dietary.value,
-    song: this.song.value,
+    attendance: this.attendance.value,
     password: this.password.value
   });
 
@@ -25,8 +25,8 @@ form.addEventListener('submit', function(event) {
   event.preventDefault();
 });
 
-function validateEntree(entree) {
-  return entree === 'Choose One...' ? undefined : entree;
+function validateAttendance(attendance) {
+  return attendance === 'Choose One...' ? undefined : attendance;
 }
 
 function submit(data) {
@@ -48,7 +48,7 @@ function handle() {
 
 function handleError(error) {
   var name = form.name.value;
-  var entree = validateEntree(form.entree1.value);
+  var attendance = validateAttendance(form.attendance.value);
   var password = form.password.value;
 
   clearAlerts();
@@ -62,13 +62,13 @@ function handleError(error) {
     nameInput.style.borderColor = null;
   }
 
-  if(emptyValue(entree) || error.entree1) {
-    formEntree.style.color = errorColor;
-    entreeInput.style.borderColor = errorColor;
-    createNewAlert(entreeInputFooter, 'entree-error-msg', 'Please select an entree');
+  if(emptyValue(attendance) || error.attendance) {
+    formAttendance.style.color = errorColor;
+    attendanceInput.style.borderColor = errorColor;
+    createNewAlert(attendanceInputFooter, 'attendance-error-msg', 'Please indicate if you will attend');
   } else {
-    formEntree.style.color = null;
-    entreeInput.style.borderColor = null;
+    formAttendance.style.color = null;
+    attendanceInput.style.borderColor = null;
   }
 
   if(emptyValue(password) || error.password) {
@@ -92,8 +92,8 @@ function handleSuccess() {
   clearAlerts();
   formName.style.color = null;
   nameInput.style.borderColor = null;
-  formEntree.style.color = null;
-  entreeInput.style.borderColor = null;
+  formAttendance.style.color = null;
+  attendanceInput.style.borderColor = null;
   formPassword.style.color = null;
   passwordInput.style.borderColor = null;
 
@@ -125,8 +125,8 @@ function clearAlerts() {
     deleteAlert('name-error-msg');
   }
 
-  if(document.getElementById('entree-error-msg')) {
-    deleteAlert('entree-error-msg');
+  if(document.getElementById('attendance-error-msg')) {
+    deleteAlert('attendance-error-msg');
   }
 
   if(document.getElementById('password-error-msg')) {

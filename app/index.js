@@ -28,7 +28,6 @@ app.post('/guests', function (request, response) {
   request.sanitizeBody('name').escape();
   request.sanitizeBody('guest').escape();
   request.sanitizeBody('dietary').escape();
-  request.sanitizeBody('song').escape();
   request.sanitizeBody('password').escape();
 
   request.getValidationResult().then(function(result) {

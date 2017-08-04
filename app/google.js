@@ -47,7 +47,7 @@ exports.addRsvp = function(data, next) {
       valueInputOption: 'RAW',
       resource: {
         values: [
-          [data.name, data.guest, data.entree1, data.entree2, data.dietary, data.song]
+          [data.name, data.guest, data.entree1, data.entree2, data.dietary, data.attendance]
         ]
       },
       auth: authClient
