@@ -22,7 +22,7 @@ app.get('/', function (request, response) {
 
 app.post('/guests', function (request, response) {
   request.checkBody('name', 'The first guest must enter a valid name').notEmpty();
-  request.checkBody('entree1', 'Please select an entree').notEmpty();
+  request.checkBody('attendance', 'Please indicate if you will attend').notEmpty();
   request.checkBody('password', 'Invalid password').equals('101517rsvp');
 
   request.sanitizeBody('name').escape();
